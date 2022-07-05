@@ -16,7 +16,20 @@ const resolvers = {
             })
 
             return user.save()
-        }
+        },
+
+        updateUser: async (_, { userId, name, age }) => {
+            const filter = { _id: userId }
+            const update = {
+                name: name,
+                age: age
+            }
+            return await User.findOneAndUpdate(filter, update, { new: true })
+        },
+
+        deleteUser: async (_, { userId }) => {
+            return await User.findOneAndDelete({_id:userId})
+        },
     }
 }
 

@@ -19,8 +19,9 @@ const typeDefs = gql`
 
     type Mutation {
         createUser(UserInput:userInput):user
+        updateUser(userId:ID, name:String, age:Int):user
+        deleteUser(userId:ID):user
     }
-
 `
 
 module.exports = { typeDefs }
